@@ -7,10 +7,8 @@ var loginController = require('../controllers/login.controller');
 
 router.get('/webview/login', loginController.viewLogin);
 
-router.post('/okta', loginController.okta);
-
 router.get('/authorization-code/callback', loginController.callback);
 
-//router.post('/webview/login', validationRule , loginController.postLogin);
+router.post('/send', loginController.send);
 
 module.exports = router;

@@ -57,16 +57,7 @@ $( "form" ).on("submit", function (event) {
             })
             .then(function (tokenCaptcha) {
               $(".c-spinner").show();
-              $.ajax({
-                url: "/okta",
-                type: 'POST',
-                data: { username : mail, password: password },
-                success: function(res) {
-                  //window.location.href = '/'
-                  $(".c-spinner").hide();
-                }
-              });
-              /*const authClient = new OktaAuth({
+                const authClient = new OktaAuth({
                     clientId: $("#creds").attr("clientId"),
                     redirectUri: $("#creds").attr("redirectUri"),
                     issuer: $("#creds").attr("issuer"),
@@ -80,34 +71,50 @@ $( "form" ).on("submit", function (event) {
                     issuer: $("#creds").attr("issuer2").trim(),
                     authorizeUrl: $("#creds").attr("issuer2").trim() + "/oauth/v1/authorize",
                     responseType: 'code',
-                    pkce: false
+                    pkce: false,
+                    cookies: {
+                      sessionCookie: true
+                    }
                 });
-
                 authClient.signInWithCredentials({username: mail, password})
                 .then((transaction) => {
-                  console.log(transaction);
                     if (transaction.status === 'SUCCESS') {
-                        //console.log(transaction)
                         authClient2.token.getWithoutPrompt({
                             sessionToken: transaction.sessionToken,
                             scopes: ['openid', 'offline_access', 'profile', 'idb2c'],
                             state: JSON.stringify({mail})
-                        })
-                        .then(function(res) {
-                          showError("HELLO");
+                        }).then(response => {
+                          showError("Bien");
                         })
                         .catch(function(err) {
-                          console.log(err)
                           showError("Une erreur technique est survenue");
-                        // handle OAuthError or AuthSdkError (AuthSdkError will be thrown if app is in OAuthCallback state)
                         });
+                        $.ajax({
+                          type: "POST",
+                          url: "/send",
+                          data: { 
+                            "session": $("#session").val()
+                          },
+                          success: function(response){
+                            setTimeout(function(){ 
+                              //console.log(response)
+                              window.parent.close();
+                              $(".c-spinner").hide();
+                            }, 3000);
+                          },
+                          error: function(){
+                            showError("Une erreur technique est survenue");
+                            $(".c-spinner").hide();
+                          }
+                        });
+                        //window.location.href = "/"
                         $(".c-spinner").hide();
                     } else {
                       showError("Une erreur technique est survenue");
                     }
                 }).catch((err) => {
                     showError("L'adresse email et/ou le mot de passe sont incorrects.");
-                });*/
+                });
 
             });
         });
