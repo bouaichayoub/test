@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include("head"); -%>
+    <!--<script id="creds" s_id="<%=siteKey%>" src="/public/js/login.js"></script>-->
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=<%=siteKey%>"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"  async defer></script>
+    <script id="creds" s_id="<%=siteKey%>" issuer="<%=issuer%>" issuer2="<%=issuer2%>" clientId="<%=clientId%>" clientId2="<%=clientId2%>" redirectUri="<%=redirectUri%>" src="/utils/login.js"  async defer></script>
+    <link rel="stylesheet" type="text/css" href="/public/css/login.css">
+    <link rel="stylesheet" href="/public/css/coreLogin.css" />
+    <!--<script src="https://global.oktacdn.com/okta-auth-js/4.5.0/okta-auth-js.min.js" type="text/javascript"></script>-->
+    <title>
+      <%=title%>
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/public/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body class="u-theme-genBlue"
+  data-e-interchange-settings="{&quot;lazySettings&quot;:{&quot;offscreen&quot;:1.5,&quot;delayed&quot;:10000}}">
+
+  <div class="k-composantPage">
+    <div class="k-composantPage__content">
+      <div class="k-composantPage__demo" data-demo-html="1">
+        <!-- .c-header-->
+        <div class="c-header l-wrapper--medium"><img src="/public/images/logo-engie.svg" alt="logo Engie" width="128"
+            height="45"></div>
+        <!-- end .c-header-->
+        <div class="c-oktaAuth l-wrapper--smallMedium">
+          <h1 class="u-textCenter u-heading-3">Connexion CX</h1>
+          <form class="u-margin-t-l" method="post" action="" id="authenticate-form" required>
+            <div class="c-input u-margin-form">
+              <label class="c-field__label" for="field-3">E-mail
+              </label>
+              <div class="c-field__wrapper">
+                <input class="c-input__field c-field__field" id="email" name="email" type="email" autocapitalize="off"
+                pattern="^[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+([\.]{1})[0-9a-zA-Z\._-]+$"
+                  placeholder="Ex nom.prenom@example.com" value="int.312397506.engie@yopmail.com"  aria-describedby="field-3-status">
+              </div>
+              <div class="login_error_status" id="email-error-message"><%=(typeof errors!='undefined' && typeof errors.email!='undefined' )? errors.email.msg:''%></div>
+            </div>
+            <label class="c-field__label" for="field-4">Mot de passe
+            </label>
+            <div class="c-field__wrapper">
+              <input class="c-input__field c-field__field" value="Gdfgdf1!" id="password" autocomplete="on" name="password"
+                type="password" autocapitalize="off"
+                placeholder="Votre mot de passe" aria-describedby="field-4-status" aria-invalid="true">
+              <button class="c-input__pictoBtn icon_btn" type="button" data-e-input-password-btn="">
+                <span id="picto_icon_1" class="c-input__pictoShow"><span class="u-visibilityHidden">Montrer le mot de
+                    passe
+                  </span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"
+                    focusable="false">
+                    <path
+                      d="M12 4c2.728 0 5.336 1.43 7.766 3.781a23.31 23.31 0 012.24 2.515c.399.516.681.923.837 1.165l.344.539-.345.539c-.154.242-.437.649-.836 1.165-.66.857-1.41 1.713-2.24 2.515C17.336 18.569 14.728 20 12 20c-2.728 0-5.336-1.43-7.766-3.781a23.312 23.312 0 01-2.24-2.515 17.482 17.482 0 01-.836-1.165L.813 12l.345-.539c.155-.242.437-.649.836-1.165.66-.857 1.41-1.713 2.24-2.515C6.664 5.431 9.272 4 12 4zm8.422 7.517a21.33 21.33 0 00-2.046-2.298C16.282 7.194 14.106 6 12 6 9.895 6 7.718 7.194 5.624 9.219A21.324 21.324 0 003.216 12a21.319 21.319 0 002.408 2.781C7.718 16.806 9.895 18 12 18c2.105 0 4.282-1.194 6.376-3.219A21.325 21.325 0 0020.784 12c-.11-.152-.231-.314-.362-.483zM8 12a4 4 0 108 0 4 4 0 00-8 0zm6 0a2 2 0 11-4 0 2 2 0 014 0z">
+                    </path>
+
+                  </svg>
+                </span>
+                <span id="picto_icon_2" class="c-input__pictoHide">
+                  <span class="u-visibilityHidden">Masquer le mot de
+                    passe
+                  </span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"
+                    focusable="false">
+                    <path fill-rule="evenodd"
+                      d="M2.707 1.293L1.293 2.707l4.065 4.065c-.379.314-.754.65-1.124 1.01-.83.801-1.58 1.657-2.24 2.514-.399.516-.681.923-.836 1.165L.813 12l.345.539c.155.242.437.649.836 1.165.66.857 1.41 1.713 2.24 2.515C6.664 18.569 9.272 20 12 20c1.72 0 3.394-.57 5.006-1.58l4.287 4.287 1.414-1.414-20-20zm12.838 15.666l-1.513-1.513a4 4 0 01-5.478-5.478L6.78 8.194c-.388.312-.773.655-1.156 1.025A21.334 21.334 0 003.216 12a21.328 21.328 0 002.408 2.781C7.718 16.806 9.895 18 12 18c1.168 0 2.359-.368 3.545-1.041zm-5.477-5.477a2.002 2.002 0 002.45 2.45l-2.45-2.45zm10.03 4.409l-1.414-1.414a21.608 21.608 0 002.1-2.477 21.34 21.34 0 00-2.408-2.781C16.282 7.194 14.106 6 12 6c-.522 0-1.049.073-1.578.215L8.84 4.633C9.873 4.221 10.927 4 12 4c2.728 0 5.336 1.43 7.766 3.781.83.802 1.58 1.658 2.24 2.515.399.516.681.923.837 1.165l.344.539-.345.539c-.154.242-.437.649-.836 1.165a23.57 23.57 0 01-1.908 2.187z"
+                      clip-rule="evenodd"></path>
+
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <input type="hidden" name="session" id="session" class="form-control form_data" value="<%=session%>" />
+            <div class="login_error_status" id="error-message"><%=(typeof errors!='undefined' && typeof errors.password!='undefined' )? errors.password.msg:''%></div>
+        </div>
+      </div>
+      <div class="c-btnWrapper u-margin-t-xl">
+        <button class="c-baseBtn  u-theme-bg u-theme-bg-hover" id="submit"><span class="c-baseBtn__content">Me
+            connecter</span>
+          <span class="c-spinner" style="color: white; margin-left: 5px; width: 35px; display: none;">
+            <span class="c-spinner__container">
+              <span class="c-spinner__firstArk"></span>
+              <span class="c-spinner__secondArk"></span>
+            </span>
+          </span>
+        </button>
+      </div>
+      <div class="c-btnWrapper"><a id="besion-aide" class="c-baseBtn c-baseBtn--empty" href="#"><span
+            class="c-baseBtn__content">Besoin
+            d'aide ?</span></a>
+      </div>
+      </form>
+      <div class="c-wysiwyg u-textCenter u-margin-t-m">
+        <p>Première connexion ? <a id="creation-compte" href="#">Créez votre compte</a></p>
+      </div>
+    </div>
+    <!-- end .c-oktaAuth-->
+  </div>
+  </div>
+
+  </div>
+  <div class="c-notification c-notification--blue" role="status" aria-live="polite"></div>
+</body>
+
+</html>

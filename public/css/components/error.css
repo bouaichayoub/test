@@ -1,0 +1,13 @@
+.c-error {
+    color: #343434;
+    background-color: #ffcccc;
+    padding: 0 15px;
+    border-radius: 5px;
+    line-height: 45px;
+}
+
+.c-error.no-fill {
+    color: #ff0033;
+    background-color: initial;
+    padding: 0;
+}

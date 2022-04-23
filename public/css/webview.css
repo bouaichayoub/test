@@ -1,0 +1,364 @@
+@import url(../bootstrap/bootstrap.css);
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #c6c6c6;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #c6c6c6;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #c6c6c6;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #c6c6c6;
+}
+
+body,
+html,
+.container {
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+}
+
+form {
+  width: 330px;
+  padding: 15px 10px 0 10px;
+  margin: 0 auto;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+span.field,
+input,
+select,
+button,
+textarea {
+  font-family: "Droid Sans", sans-serif;
+  font-weight: bold;
+  display: block;
+  background-color: #fff;
+  border-radius: 100px !important;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  text-align: left;
+  margin-bottom: 10px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 20px;
+  padding: 5px 25px 5px 15px;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+
+textarea {
+  border-radius: 30px !important;
+}
+input[type="number"] {
+  padding-left: 15px;
+  padding-right: 10px !important;
+}
+
+.flatHidden {
+  background: none;
+}
+
+.invalid-date {
+  background: url("../images/invalid-field.jpg") no-repeat right 10px center !important;
+  background-size: 25px !important;
+}
+
+.valid-date {
+  background: url("../images/valid-field.jpg") no-repeat right 10px center;
+  background-size: 25px;
+}
+
+input[disabled][type="text"],
+input[disabled][type="number"],
+input[disabled][type="tel"],
+input[disabled][type="email"] {
+  background: #eee none;
+}
+
+input.not-mandatory {
+  background: none !important;
+}
+
+button[type="submit"],
+input[type="submit"] {
+  width: 70% !important;
+  margin: 20px auto !important;
+  text-align: center !important;
+  color: #fff !important;
+  background-color: #19a546;
+  border: none;
+}
+button[type="submit"][disabled],
+input[type="submit"][disabled] {
+  color: #bdbcbc !important;
+  background-color: #dfdfdf !important;
+}
+
+.submit-with-mask {
+  position: relative;
+}
+.submit-with-mask .submit-mask {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 70%;
+  margin: 20px 0 20px -35%;
+}
+
+label,
+.field-error {
+  display: block;
+  font-size: 19px;
+  font-weight: normal;
+  letter-spacing: -1px;
+  line-height: 20px;
+  margin: 0;
+  padding: 5px 0 10px;
+  text-align: center;
+}
+
+.field-error {
+  color: #d70451;
+}
+
+.field_with_errors input {
+  border: 2px solid #d70451 !important;
+}
+.field_with_errors .message {
+  display: block;
+  font-size: 13px;
+  line-height: 14px;
+  padding: 6px 8px 5px 33px;
+  background: url("../images/picto-erreur.png") 9px center no-repeat #fbf3f3;
+  border-radius: 20px;
+  color: #d40707;
+  margin-top: 10px;
+}
+
+textarea:hover,
+input:hover,
+select:hover,
+textarea:active,
+input:active,
+select:hover,
+textarea:focus,
+input:focus,
+select:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active {
+  outline: 0 !important;
+}
+
+select {
+  text-align: left;
+  text-align-last: left;
+  border-radius: 100px;
+  border: 1px solid #aaa;
+  -webkit-appearance: none;
+  background: url("../images/select-arrow.jpg") no-repeat right 15px center;
+  background-size: 20px;
+}
+option {
+  text-align: left;
+}
+
+.inline-checkbox {
+  width: 13px;
+  height: 13px;
+  padding: 0;
+  margin: 0;
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+}
+
+.wrap {
+  width: 330px;
+  padding: 15px 10px 0 10px;
+  margin: 0 auto;
+}
+
+.edit_house td,
+.edit_flat td {
+  padding: 0 5px;
+}
+
+.edit_house input[type="checkbox"],
+.edit_flat input[type="checkbox"] {
+  float: left;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.edit_house input[type="checkbox"]:checked,
+.edit_flat input[type="checkbox"]:checked {
+  background: url("../images/valid-field.jpg") no-repeat;
+}
+
+.edit_house .small-label,
+.edit_flat .small-label {
+  font-size: 16px;
+}
+
+.edit_house label,
+.edit_flat label {
+  text-align: left;
+  font-size: 18px;
+}
+
+.datepicker-input {
+  background: url("../images/calendar.jpg") no-repeat right 10px center;
+  background-size: 25px;
+  border-radius: 100px;
+}
+.datepicker table tr td.old,
+.datepicker table tr td.new {
+  color: #333;
+}
+.datepicker table tr td.disabled,
+.datepicker table tr td.disabled:hover {
+  color: #ddd;
+}
+
+.title {
+  background-color: #00aaff;
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 22px;
+  padding: 5px 0;
+  margin: 20px 0px 10px 0px;
+}
+.title.first {
+  margin-top: 0px;
+}
+
+.flatclass {
+  display: block !important;
+  font-weight: normal !important;
+  margin: 0 !important;
+  padding: 5px 0 4px !important;
+  text-align: left !important;
+  font-size: 15px !important;
+}
+
+.edit_billing {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.form-picto {
+  text-align: center;
+  margin: 20px auto;
+  display: block;
+}
+
+.pill {
+  text-align: center;
+  margin: 20px 0;
+  display: block;
+  cursor: pointer;
+  font-weight: bold;
+  word-spacing: -4px;
+}
+
+.pill span {
+  color: #b8b1b1;
+  background-color: #dfd7d7;
+  padding: 5px 20px;
+  width: 125px;
+  display: inline-block;
+}
+
+.pill .checked {
+  color: #fff;
+  background-color: #19a546;
+}
+
+.pill .left-pill {
+  border-radius: 100px 0 0 100px;
+}
+
+.pill .right-pill {
+  border-radius: 0 100px 100px 0;
+}
+
+.hidden-box {
+  display: none;
+}
+
+.billing,
+.monthly {
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}
+
+.contract-error {
+  margin: 50px auto;
+  text-align: center;
+  font-weight: 700;
+}
+
+div.identity span.form-control-feedback {
+  padding-top: 0 !important;
+  top: 3px;
+  right: 15px;
+}
+
+div.dwelling span.form-control-feedback {
+  right: 15px;
+  padding-top: 8px;
+}
+
+td.has-feedback {
+  vertical-align: top !important;
+}
+
+@media print {
+  input[type="number"]:valid,
+  input[type="text"]:valid,
+  input[type="tel"]:valid,
+  input[type="email"]:valid,
+  select,
+  .datepicker-input {
+    background: none;
+  }
+  button[type="submit"],
+  span.form-control-feedback {
+    display: none;
+  }
+  .has-success .form-control,
+  .has-success .form-control-feedback {
+    border-color: #ccc;
+  }
+}
